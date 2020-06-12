@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Sprites/Green .png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Enemy.gd" type="Script" id=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 10.5
+height = 6.0
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 200.0
+
+[node name="Enemy" type="KinematicBody2D"]
+position = Vector2( 45.475, 45.55 )
+collision_layer = 4
+collision_mask = 7
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 1 )
+flip_h = true
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource( 1 )
+
+[node name="Sight" type="Area2D" parent="."]
+visible = false
+
+[node name="Collision" type="CollisionShape2D" parent="Sight"]
+shape = SubResource( 2 )
+
+[node name="TurnAxis" type="Position2D" parent="."]
+
+[node name="CastPoint" type="Position2D" parent="TurnAxis"]
+position = Vector2( 35, 0 )
+[connection signal="body_entered" from="Sight" to="." method="_on_Sight_body_entered"]
+[connection signal="body_exited" from="Sight" to="." method="_on_Sight_body_exited"]
