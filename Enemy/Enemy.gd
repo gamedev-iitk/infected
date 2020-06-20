@@ -1,71 +1,56 @@
-extends Area2D
-signal enemy_killed
-var direction = Vector2()
-var screensize 
-var follow = false
-var distance
-var speed = 0
-var swarm = false
-var enemySpeedMin = 50
-var enemySpeedMax = 75
-var enemyTimerMin = 5
-var enemyTimerMax = 25
-onready var player = get_node("/root/main/player")
-func _ready():
-   
-	randomize()
-	
-	screensize = get_viewport_rect().size
-   
-	speed = rand_range(enemySpeedMin ,enemySpeedMax)
-   
-	follow = false
-	swarm = 0
-   
-	$effect.interpolate_property(self, "scale", self.get_scale(),Vector2(.3,.3),0.3,Tween.TRANS_QUAD,Tween.EASE_OUT)
-	
-	$enemyTimer.wait_time = (rand_range(enemyTimerMin ,enemyTimerMax))
-	
-	$enemyTimer.start()
-func _process(delta):   
-	
-	direction = player.position - self.position
-	
-	if direction.x > 0:
-		self.get_node("enemy").set_flip_h(1)
+extends KinematicBody2D
+
+const GRAVITY = 10
+#const FLOOR = Vector2(0,-1)
+
+export(int) var hp = 3
+export(int) var speed = 60
+var velocity = Vector2()
+var direction = 1
+
+var is_dead = false
+var timeout_flag = 0
+signal player_in_contact(damage)
+
+func _physics_process(delta):
+	if is_dead == false:
+		velocity.x = speed * direction
+		velocity.y += GRAVITY
+#		velocity = move_and_slide(velocity, FLOOR)
+		var collision = move_and_collide(velocity * delta)
+		if collision:
+			velocity = velocity.slide(collision.normal)
+			if collision.collider.name == "Player" :
+				if timeout_flag == 0 :
+					$PlayerHit.start()
+					timeout_flag = 1
+			if collision.collider.name == "Bullet" :
+				print(collision.collider.name)
+				On_hit_and_dead()
+	if direction == 1:
+		$Sprite.flip_h == false
 	else:
-		self.get_node("enemy").set_flip_h(0)
-	distance = sqrt(direction.x * direction.x + direction.y * direction.y)
-	
-	if distance < 200:
-		follow = true
-	else:
-		follow = false
+		$Sprite.flip_h == true
 		
-	if follow == true or swarm > 100:   
+	if is_on_wall():
+		direction *= -1
+		$RayCast2D.position.x *= -1
 		
-		swarm += 1
-		
-		position += direction.normalized() * speed * delta
-		position.x = clamp(position.x, 0, screensize.x)
-		position.y = clamp(position.y, 0 , screensize.y)
-func _on_enemy_area_enter( area ):
-	
-	if area.get_name()=="player":
-		
-		call_deferred("set_monitoring", false)
-		
-		if not $effect.is_active():
-			$effect.start()
-		
-		emit_signal("enemy_killed")
-func _on_effect_tween_completed( object, key ):
-	
+	if $RayCast2D.is_colliding() == false:
+		direction *= -1
+		$RayCast2D.position.x *= -1
+
+func On_hit_and_dead():
+	hp -= 1
+	if hp <= 0:
+		is_dead = true
+		velocity = Vector2(0,0)
+		$CollisionShape2D.disabled = true
+		$Timer.start()
+
+func _on_Timer_timeout():
 	queue_free()
-func _on_enemytimer_timeout():
-	
-	if not $effect.is_active():
-		$effect.start()
-func _on_VisibilityNotifier2D_screen_exited():
-   
-	queue_free()
+
+func _on_PlayerHit_timeout():
+	emit_signal("player_in_contact",5)
+	timeout_flag = 0
