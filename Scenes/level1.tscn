@@ -62,7 +62,7 @@ position = Vector2( 32.5245, 124.371 )
 scale = Vector2( 0.15, 0.15 )
 
 [node name="Sprite" parent="Player" index="0"]
-frame = 9
+frame = 2
 
 [node name="Enemy" parent="." instance=ExtResource( 5 )]
 position = Vector2( 414.593, 207.053 )
