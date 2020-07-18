@@ -1,11 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Sprites/bg1.jpg" type="Texture" id=2]
 [ext_resource path="res://Player/player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Interface/Interface.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Enemy/Enemy.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/Lifebar.gd" type="Script" id=6]
 [ext_resource path="res://Scenes/Bullet.tscn" type="PackedScene" id=7]
 
 [node name="Level 1" type="Node2D"]
@@ -59,7 +58,7 @@ margin_bottom = -9.0
 rect_scale = Vector2( 0.75, 0.75 )
 
 [node name="Lifebar" parent="Interface" index="0"]
-script = ExtResource( 6 )
+script = null
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 32.5245, 124.371 )
