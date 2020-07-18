@@ -3,10 +3,10 @@ extends KinematicBody2D
 const GRAVITY = 10
 #const FLOOR = Vector2(0,-1)
 
-export(int) var hp = 3
+export(int) var hp = 1
 export(int) var speed = 60
 var velocity = Vector2()
-var direction = 1
+var direction=1
 
 var is_dead = false
 var timeout_flag = 0
@@ -43,6 +43,7 @@ func _physics_process(delta):
 func On_hit_and_dead():
 	hp -= 1
 	if hp <= 0:
+		queue_free()
 		is_dead = true
 		velocity = Vector2(0,0)
 		$CollisionShape2D.disabled = true
