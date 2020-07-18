@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Sprites/bg1.jpg" type="Texture" id=2]
 [ext_resource path="res://Player/player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Interface/Interface.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Enemy/Enemy.tscn" type="PackedScene" id=5]
+[ext_resource path="res://font/menu.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Bullet.tscn" type="PackedScene" id=7]
 
 [node name="Level 1" type="Node2D"]
@@ -117,6 +118,8 @@ position = Vector2( 333.295, 318.881 )
 position = Vector2( 0, 2.16144 )
 
 [node name="Bullet" parent="." instance=ExtResource( 7 )]
+
+[node name="Control" parent="." instance=ExtResource( 6 )]
 [connection signal="player_in_contact" from="Enemy" to="Player" method="_on_Enemy_player_in_contact"]
 [connection signal="player_in_contact" from="Enemy2" to="Player" method="_on_Enemy_player_in_contact"]
 [connection signal="player_in_contact" from="Enemy3" to="Player" method="_on_Enemy_player_in_contact"]
