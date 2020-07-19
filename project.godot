@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Infected"
-run/main_scene="res://Scenes/level1.tscn"
+run/main_scene="res://Cutscenes"
 config/use_custom_user_dir=true
 config/icon="res://icon.png"
 config/icon.demo_build="res://icon.png"
