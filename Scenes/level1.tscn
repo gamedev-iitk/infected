@@ -58,10 +58,9 @@ margin_right = -7.0
 margin_bottom = -9.0
 rect_scale = Vector2( 0.75, 0.75 )
 
-[node name="Lifebar" parent="Interface" index="0"]
-script = null
-
-[node name="Player" parent="." instance=ExtResource( 3 )]
+[node name="Player" parent="." groups=[
+"player",
+] instance=ExtResource( 3 )]
 position = Vector2( 32.5245, 124.371 )
 scale = Vector2( 0.15, 0.15 )
 
@@ -70,64 +69,17 @@ frame = 9
 
 [node name="Enemy" parent="." instance=ExtResource( 5 )]
 position = Vector2( 414.593, 207.053 )
-
-[node name="Enemy2" parent="." groups=[
-"enemy",
-] instance=ExtResource( 5 )]
-position = Vector2( 200.612, 190.842 )
-
-[node name="CollisionShape2D" parent="Enemy2" index="1"]
-position = Vector2( 0, 2.16144 )
-
-[node name="Enemy3" parent="." groups=[
-"enemy",
-] instance=ExtResource( 5 )]
-position = Vector2( 577.432, 318.881 )
-
-[node name="CollisionShape2D" parent="Enemy3" index="1"]
-position = Vector2( 0, 2.16144 )
-
-[node name="Enemy4" parent="." instance=ExtResource( 5 )]
-position = Vector2( 608.613, 240.599 )
-
-[node name="CollisionShape2D" parent="Enemy4" index="1"]
-position = Vector2( 0, 2.16144 )
-
-[node name="Enemy5" parent="." instance=ExtResource( 5 )]
-position = Vector2( 235.11, 270.452 )
-
-[node name="CollisionShape2D" parent="Enemy5" index="1"]
-position = Vector2( 0, 2.16144 )
-
-[node name="Enemy6" parent="." instance=ExtResource( 5 )]
-position = Vector2( 132.944, 129.145 )
-
-[node name="CollisionShape2D" parent="Enemy6" index="1"]
-position = Vector2( 0, 2.16144 )
-
-[node name="Enemy7" parent="." instance=ExtResource( 5 )]
-position = Vector2( 92.4755, 318.881 )
-
-[node name="CollisionShape2D" parent="Enemy7" index="1"]
-position = Vector2( 0, 2.16144 )
-
-[node name="Enemy8" parent="." instance=ExtResource( 5 )]
-position = Vector2( 333.295, 318.881 )
-
-[node name="CollisionShape2D" parent="Enemy8" index="1"]
-position = Vector2( 0, 2.16144 )
+speed = 40
 
 [node name="Bullet" parent="." instance=ExtResource( 7 )]
 
 [node name="Control" parent="." instance=ExtResource( 6 )]
+visible = false
+
+[node name="Enemy2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 150, 110 )
+[connection signal="health_changed" from="Player" to="Interface" method="_on_Player_health_changed"]
 [connection signal="player_in_contact" from="Enemy" to="Player" method="_on_Enemy_player_in_contact"]
-[connection signal="player_in_contact" from="Enemy2" to="Player" method="_on_Enemy_player_in_contact"]
-[connection signal="player_in_contact" from="Enemy3" to="Player" method="_on_Enemy_player_in_contact"]
-[connection signal="player_in_contact" from="Enemy4" to="Player" method="_on_Enemy_player_in_contact"]
-[connection signal="player_in_contact" from="Enemy5" to="Player" method="_on_Enemy_player_in_contact"]
-[connection signal="player_in_contact" from="Enemy6" to="Player" method="_on_Enemy_player_in_contact"]
-[connection signal="player_in_contact" from="Enemy7" to="Player" method="_on_Enemy_player_in_contact"]
-[connection signal="player_in_contact" from="Enemy8" to="Player" method="_on_Enemy_player_in_contact"]
 
 [editable path="Interface"]
 
@@ -136,15 +88,3 @@ position = Vector2( 0, 2.16144 )
 [editable path="Enemy"]
 
 [editable path="Enemy2"]
-
-[editable path="Enemy3"]
-
-[editable path="Enemy4"]
-
-[editable path="Enemy5"]
-
-[editable path="Enemy6"]
-
-[editable path="Enemy7"]
-
-[editable path="Enemy8"]
