@@ -84,6 +84,6 @@ func _shoot() :
 		bullet.set_position(bullet_pos)
 
 
-func _on_Enemy_player_in_contact(damage):
-	set_health(health-damage)
-	emit_signal("health_changed",health)
+func enemy_in_contact(damage):
+	set_health(health - damage)
+	emit_signal("health_changed", health)
