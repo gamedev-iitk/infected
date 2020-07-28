@@ -26,11 +26,12 @@ margin_right = 560.0
 margin_bottom = 280.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color_readonly = Color( 0, 0, 0, 1 )
-text = "The deadly virus is on the move 
-you have to save the planet. 
+text = "
 Kill the virus before it kills you
-rest instruction is left for team 
-members to fill
+up arrow - jump
+left arrow - move left
+right arrow - move right
+mouse click - shoot
 "
 readonly = true
 breakpoint_gutter = true
