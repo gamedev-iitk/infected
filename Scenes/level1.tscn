@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Sprites/bg1.jpg" type="Texture" id=2]
 [ext_resource path="res://Player/player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Interface/Interface.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Enemy/Enemy.tscn" type="PackedScene" id=5]
+[ext_resource path="res://font/menu.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Bullet.tscn" type="PackedScene" id=7]
 
 [node name="Level 1" type="Node2D"]
@@ -57,7 +58,9 @@ margin_right = -7.0
 margin_bottom = -9.0
 rect_scale = Vector2( 0.75, 0.75 )
 
-[node name="Player" parent="." instance=ExtResource( 3 )]
+[node name="Player" parent="." groups=[
+"player",
+] instance=ExtResource( 3 )]
 position = Vector2( 32.5245, 124.371 )
 scale = Vector2( 0.15, 0.15 )
 
@@ -66,8 +69,15 @@ frame = 9
 
 [node name="Enemy" parent="." instance=ExtResource( 5 )]
 position = Vector2( 414.593, 207.053 )
+speed = 40
 
 [node name="Bullet" parent="." instance=ExtResource( 7 )]
+
+[node name="Control" parent="." instance=ExtResource( 6 )]
+visible = false
+
+[node name="Enemy2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 150, 110 )
 [connection signal="health_changed" from="Player" to="Interface" method="_on_Player_health_changed"]
 [connection signal="player_in_contact" from="Enemy" to="Player" method="_on_Enemy_player_in_contact"]
 
@@ -76,3 +86,5 @@ position = Vector2( 414.593, 207.053 )
 [editable path="Player"]
 
 [editable path="Enemy"]
+
+[editable path="Enemy2"]
