@@ -17,7 +17,7 @@ func _ready():
 
 
 func _on_New_game_pressed():
-	get_tree().change_scene("res://Bullet.tscn")
+	get_tree().change_scene("res://Scenes/level1.tscn")
 
 
 func _on_instructions_pressed():
