@@ -10,7 +10,7 @@ func _physics_process(delta):
 		queue_free()
 	var direction = (mouse_pos - start_pos).normalized()
 	var distance =  get_position() - start_pos
-	if distance.length() > 500 :
+	if distance.length() > 200 :
 		queue_free()
 	translate(SPEED*direction)
 

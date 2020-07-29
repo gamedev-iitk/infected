@@ -5,12 +5,14 @@ const FLOOR = Vector2(0,-1)
 
 export(int) var hp = 2
 export(int) var speed = 60
+export(int) var damage = 5
+
 var velocity = Vector2()
 var direction=1
 
 var is_dead = false
 var timeout_flag = 0
-signal player_in_contact(damage)	
+
 
 func _physics_process(delta):
 	if is_dead == false:
@@ -49,5 +51,5 @@ func _on_Timer_timeout():
 	queue_free()
 
 func _on_PlayerHit_timeout():
-	get_tree().call_group("player", "enemy_in_contact", 5)
+	get_tree().call_group("player", "enemy_in_contact", damage)
 	timeout_flag = 0
