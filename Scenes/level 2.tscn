@@ -1,0 +1,217 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://tiles.tres" type="TileSet" id=1]
+[ext_resource path="res://Textures/sp.png" type="Texture" id=2]
+[ext_resource path="res://Enemy/Interface/Interface.gd" type="Script" id=3]
+[ext_resource path="res://Enemy/Interface/Lifebar.gd" type="Script" id=4]
+[ext_resource path="res://Enemy/Interface/Health_fill.png" type="Texture" id=5]
+[ext_resource path="res://Enemy/Interface/label_HP.png" type="Texture" id=6]
+[ext_resource path="res://Enemy/Interface/Health_BG.png" type="Texture" id=7]
+[ext_resource path="res://Player/player.gd" type="Script" id=8]
+[ext_resource path="res://Sprites/player + invert.png" type="Texture" id=9]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 7.54886, 23.8255 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 5.99931, 22.9041 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "Ideal left"
+length = 0.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 9 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "Ideal right"
+length = 0.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "infected player left"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 8, 7, 8, 6 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "infected player right"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 2, 3, 2, 1 ]
+}
+
+[node name="level 2" type="Node2D"]
+position = Vector2( 0, 60 )
+scale = Vector2( 1.05, 0.92 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 56.718, 265.526, 306.393 ]
+}
+
+[node name="Background" type="Node" parent="."]
+
+[node name="Sprite" type="Sprite" parent="Background"]
+position = Vector2( 0, 60 )
+scale = Vector2( 1.05, 0.92 )
+
+[node name="TileMap" type="TileMap" parent="Background"]
+position = Vector2( 0, 60 )
+scale = Vector2( 1.05, 0.92 )
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 0, 3, 0, 1, 3, 0, 2, 3, 0, 3, 3, 0, 4, 3, 0, 5, 3, 0, 6, 3, 0, 7, 3, 0, 8, 3, 0, 9, 3, 0, 10, 3, 0, 11, 3, 0, 12, 3, 0, 13, 3, 0, 14, 3, 0, 15, 3, 0, 16, 3, 0, 17, 3, 0, 18, 3, 0, 19, 3, 0, 20, 3, 0, 21, 3, 0, 22, 3, 0, 23, 3, 0, 24, 3, 0, 25, 3, 0, 26, 3, 0, 27, 3, 0, 28, 3, 0, 29, 3, 0, 30, 3, 0, 31, 3, 0, 32, 3, 0, 33, 3, 0, 34, 3, 0, 35, 3, 0, 36, 3, 0, 37, 3, 0, 65536, 3, 0, 65573, 3, 0, 131072, 3, 0, 131109, 3, 0, 196608, 3, 0, 196645, 3, 0, 262144, 3, 0, 262158, 9, 0, 262159, 9, 0, 262169, 9, 0, 262181, 3, 0, 327680, 3, 0, 327691, 2, 0, 327692, 2, 0, 327693, 2, 0, 327694, 2, 0, 327695, 2, 0, 327696, 2, 0, 327697, 2, 0, 327698, 2, 0, 327705, 9, 0, 327717, 3, 0, 393216, 3, 0, 393238, 3, 0, 393239, 3, 0, 393240, 3, 0, 393241, 3, 0, 393242, 3, 0, 393243, 3, 0, 393244, 3, 0, 393245, 3, 0, 393246, 3, 0, 393253, 3, 0, 458752, 3, 0, 458753, 3, 0, 458754, 3, 0, 458755, 3, 0, 458756, 3, 0, 458757, 3, 0, 458758, 3, 0, 458759, 3, 0, 458782, 3, 0, 524288, 3, 0, 524295, 3, 0, 524318, 3, 0, 589824, 3, 0, 589831, 3, 0, 589832, 3, 0, 589833, 3, 0, 589834, 3, 0, 589835, 3, 0, 589836, 3, 0, 589854, 3, 0, 655360, 3, 0, 655376, 4, 0, 655377, 6, 0, 655378, 6, 0, 655379, 6, 0, 655380, 6, 0, 655381, 5, 0, 655390, 3, 0, 655391, 3, 0, 655392, 3, 0, 655393, 3, 0, 655394, 3, 0, 655395, 3, 0, 655396, 3, 0, 655397, 3, 0, 720896, 3, 0, 720912, 9, 0, 720917, 9, 0, 720933, 3, 0, 786432, 3, 0, 786437, 9, 0, 786448, 9, 0, 786453, 9, 0, 786469, 3, 0, 851968, 3, 0, 851973, 9, 0, 851980, 3, 0, 851981, 3, 0, 851982, 3, 0, 851983, 3, 0, 851984, 3, 0, 851985, 3, 0, 851986, 3, 0, 851987, 3, 0, 851988, 3, 0, 851989, 3, 0, 851990, 3, 0, 851991, 3, 0, 851992, 3, 0, 851993, 3, 0, 851994, 3, 0, 852005, 3, 0, 917504, 3, 0, 917509, 9, 0, 917516, 3, 0, 917530, 3, 0, 917541, 3, 0, 983040, 3, 0, 983041, 3, 0, 983042, 3, 0, 983043, 3, 0, 983044, 3, 0, 983045, 3, 0, 983046, 3, 0, 983047, 3, 0, 983048, 3, 0, 983049, 3, 0, 983050, 3, 0, 983051, 3, 0, 983052, 3, 0, 983066, 3, 0, 983067, 3, 0, 983068, 3, 0, 983069, 3, 0, 983077, 3, 0, 1048576, 3, 0, 1048609, 3, 0, 1048610, 3, 0, 1048611, 3, 0, 1048612, 3, 0, 1048613, 3, 0, 1114112, 3, 0, 1114149, 3, 0, 1179648, 3, 0, 1179670, 1, 0, 1179671, 1, 0, 1179672, 1, 0, 1179685, 3, 0, 1245192, 3, 0, 1245215, 3, 0, 1245221, 3, 0, 1310728, 3, 0, 1310735, 4, 0, 1310736, 6, 0, 1310737, 6, 0, 1310738, 6, 0, 1310739, 5, 0, 1310751, 3, 0, 1310757, 3, 0, 1376264, 3, 0, 1376271, 9, 0, 1376275, 9, 0, 1376287, 3, 0, 1376293, 3, 0, 1441792, 3, 0, 1441793, 3, 0, 1441794, 3, 0, 1441795, 3, 0, 1441796, 3, 0, 1441797, 3, 0, 1441798, 3, 0, 1441799, 3, 0, 1441800, 3, 0, 1441801, 3, 0, 1441802, 3, 0, 1441803, 3, 0, 1441804, 3, 0, 1441805, 3, 0, 1441806, 3, 0, 1441807, 3, 0, 1441808, 3, 0, 1441809, 3, 0, 1441810, 3, 0, 1441811, 3, 0, 1441812, 3, 0, 1441813, 3, 0, 1441814, 3, 0, 1441815, 3, 0, 1441816, 3, 0, 1441817, 3, 0, 1441818, 3, 0, 1441819, 3, 0, 1441820, 3, 0, 1441821, 3, 0, 1441822, 3, 0, 1441823, 3, 0, 1441824, 3, 0, 1441825, 3, 0, 1441826, 3, 0, 1441827, 3, 0, 1441828, 3, 0, 1441829, 3, 0 )
+
+[node name="breakable tiles" type="StaticBody2D" parent="Background"]
+position = Vector2( 0, 60 )
+scale = Vector2( 1.05, 0.92 )
+
+[node name="Sprite" type="Sprite" parent="Background/breakable tiles"]
+position = Vector2( 8.14485, 328.232 )
+scale = Vector2( 0.0297854, 0.356028 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite2" type="Sprite" parent="Background/breakable tiles"]
+position = Vector2( 600.011, 136.149 )
+scale = Vector2( 0.0304832, 0.356691 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite3" type="Sprite" parent="Background/breakable tiles"]
+position = Vector2( 200.045, 184.211 )
+scale = Vector2( 0.0307936, 0.358092 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/breakable tiles"]
+position = Vector2( 200.118, 184.429 )
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Background/breakable tiles"]
+position = Vector2( 599.989, 136.317 )
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Background/breakable tiles"]
+position = Vector2( 8.17345, 328.002 )
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="interface" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Lifebar" type="HBoxContainer" parent="interface"]
+margin_left = 14.0
+margin_top = -53.0
+margin_right = 495.0
+rect_scale = Vector2( 0.5, 0.5 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="interface/Lifebar"]
+margin_right = 80.0
+margin_bottom = 53.0
+rect_min_size = Vector2( 80, 0 )
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 5
+
+[node name="TextureProgress" type="TextureProgress" parent="interface/Lifebar"]
+margin_left = 84.0
+margin_right = 480.0
+margin_bottom = 53.0
+value = 100.0
+texture_under = ExtResource( 7 )
+texture_progress = ExtResource( 5 )
+
+[node name="Player" type="KinematicBody2D" parent="."]
+script = ExtResource( 8 )
+
+[node name="Sprite" type="Sprite" parent="Player"]
+position = Vector2( 38.5105, 328.993 )
+scale = Vector2( 0.138343, 0.182896 )
+texture = ExtResource( 9 )
+hframes = 10
+frame = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2( 36.2799, 328.947 )
+shape = SubResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
+"anims/Ideal left" = SubResource( 3 )
+"anims/Ideal right" = SubResource( 4 )
+"anims/infected player left" = SubResource( 5 )
+"anims/infected player right" = SubResource( 6 )
+
+[node name="AncorRight" type="Position2D" parent="Player"]
+position = Vector2( 48.6589, 314.102 )
+scale = Vector2( 0.3, 0.3 )
+
+[node name="AncorLeft" type="Position2D" parent="Player"]
+position = Vector2( 24.0734, 314.099 )
+scale = Vector2( 0.3, 0.3 )
