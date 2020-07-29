@@ -7,6 +7,7 @@
 extents = Vector2( 44.5273, 126.777 )
 
 [sub_resource type="Animation" id=2]
+resource_name = "shoot right"
 length = 0.1
 loop = true
 tracks/0/type = "value"
@@ -19,7 +20,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 9 ]
+"values": [ 6 ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -79,6 +80,7 @@ script = ExtResource( 2 )
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 hframes = 10
+frame = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -14.8254, -0.463287 )

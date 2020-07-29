@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://tiles.tres" type="TileSet" id=1]
-[ext_resource path="res://Texture/sp.png" type="Texture" id=2]
+[ext_resource path="res://Textures/sp.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/player + invert.png" type="Texture" id=3]
 [ext_resource path="res://Player/player.gd" type="Script" id=4]
 

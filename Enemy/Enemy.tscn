@@ -37,6 +37,7 @@ one_shot = true
 
 [node name="PlayerHit" type="Timer" parent="."]
 process_mode = 0
+wait_time = 0.5
 one_shot = true
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="PlayerHit" to="." method="_on_PlayerHit_timeout"]

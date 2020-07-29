@@ -1,9 +1,10 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Interface/Health_fill.png" type="Texture" id=1]
-[ext_resource path="res://Interface/Health_BG.png" type="Texture" id=2]
-[ext_resource path="res://Interface/label_HP.png" type="Texture" id=3]
-[ext_resource path="res://Interface/Interface.gd" type="Script" id=4]
+[ext_resource path="res://Enemy/Interface/Health_fill.png" type="Texture" id=1]
+[ext_resource path="res://Enemy/Interface/Health_BG.png" type="Texture" id=2]
+[ext_resource path="res://Enemy/Interface/label_HP.png" type="Texture" id=3]
+[ext_resource path="res://Enemy/Interface/Interface.gd" type="Script" id=4]
+
 
 [node name="Interface" type="Control"]
 anchor_right = 1.0

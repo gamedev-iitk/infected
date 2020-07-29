@@ -1,9 +1,9 @@
 extends KinematicBody2D
 
 const GRAVITY = 10
-#const FLOOR = Vector2(0,-1)
+const FLOOR = Vector2(0,-1)
 
-export(int) var hp = 1
+export(int) var hp = 2
 export(int) var speed = 60
 var velocity = Vector2()
 var direction=1
@@ -16,24 +16,22 @@ func _physics_process(delta):
 	if is_dead == false:
 		velocity.x = speed * direction
 		velocity.y += GRAVITY
-		velocity = move_and_slide(velocity, Vector2(0, -1))
+		velocity = move_and_slide(velocity, FLOOR)
 		for i in get_slide_count():
 			var collision = get_slide_collision(i)
 			if collision.collider.is_in_group("player"):
 				if timeout_flag == 0 :
 					$PlayerHit.start()
 					timeout_flag = 1
-			elif collision.collider.name == "Bullet" :
-				On_hit_and_dead()
 			elif collision.normal.y == 0:
 				direction *= -1
 				$RayCast2D.position.x *= -1
-			
+	
 	if direction == 1:
-		$Sprite.flip_h == false
+		$Sprite.set_flip_h(true)
 	else:
-		$Sprite.flip_h == true
-		
+		$Sprite.set_flip_h(false)
+	
 	if $RayCast2D.is_colliding() == false:
 		direction *= -1
 		$RayCast2D.position.x *= -1
