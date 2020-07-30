@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends Area2D
 
 const SPEED = 5
 var start_pos = Vector2(0,0)
@@ -10,10 +10,12 @@ func _physics_process(delta):
 		queue_free()
 	var direction = (mouse_pos - start_pos).normalized()
 	var distance =  get_position() - start_pos
-	if distance.length() > 100 :
+	if distance.length() > 200 :
 		queue_free()
-	var collision_info = move_and_collide(SPEED*direction)
-	if collision_info :
-		queue_free()
-		if collision_info.collider.name == "Enemy" :
-			print("Hit")
+	translate(SPEED*direction)
+
+func _on_Bullet_body_entered(body):
+	queue_free()
+	if "Enemy" in body.name:
+		body.On_hit_and_dead()
+

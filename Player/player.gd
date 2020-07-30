@@ -5,7 +5,7 @@ const MAX_SPEED = 70
 const FRICTION = 300
 const GRAVITY = 400 #for jump action
 
-const bullet_scene = preload("res://Bullet.tscn")
+const bullet_scene = preload("res://Scenes/Bullet.tscn")
 
 onready var animationPlayer = $AnimationPlayer
 
@@ -13,6 +13,8 @@ var max_health = 100
 var health = max_health setget set_health
 var velocity = Vector2.ZERO
 var last_direction = 0
+var on_ground = 1
+var jump_count = 1
 
 signal health_changed(new_health)
 
@@ -39,22 +41,21 @@ func _physics_process(delta):
 	
 	#movement in y direction
 	if Input.is_action_just_pressed("ui_up"):
-		velocity.y = -150
+		if jump_count:
+			velocity.y = -250
+			jump_count -= 1
 	else :
 		velocity.y += GRAVITY * delta
 		velocity.y = clamp(velocity.y,-150,200)
+	if is_on_floor():
+		jump_count = 1
+		
 	move_and_slide(velocity,Vector2(0,-1))
 	
 	#hitting bullet
 	if Input.is_action_just_pressed("LeftMouse"):
 		_shoot()
-	
-	if Input.is_action_just_pressed("new") :
-		health = health - 5
-		emit_signal("health_changed",health)
-	if health <= 0 :
-		queue_free()
-		#game_over
+
 
 func set_health(new_health):
 	health = new_health
@@ -84,6 +85,9 @@ func _shoot() :
 		bullet.set_position(bullet_pos)
 
 
-func _on_Enemy_player_in_contact(damage):
-	set_health(health-damage)
-	emit_signal("health_changed",health)
+func enemy_in_contact(damage):
+	set_health(health - damage)
+	emit_signal("health_changed", health)
+	if health <= 0 :
+		queue_free()
+	#game over

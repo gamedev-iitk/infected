@@ -1,15 +1,15 @@
 [gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://tiles.tres" type="TileSet" id=1]
-[ext_resource path="res://Texture/sp.png" type="Texture" id=2]
+[ext_resource path="res://Textures/sp.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/player + invert.png" type="Texture" id=3]
 [ext_resource path="res://Player/player.gd" type="Script" id=4]
-[ext_resource path="res://Interface/label_HP.png" type="Texture" id=5]
-[ext_resource path="res://Bullet.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Interface/Health_BG.png" type="Texture" id=7]
-[ext_resource path="res://Interface/Health_fill.png" type="Texture" id=8]
-[ext_resource path="res://Interface/Interface.gd" type="Script" id=9]
-[ext_resource path="res://Interface/Lifebar.gd" type="Script" id=10]
+[ext_resource path="res://Enemy/Interface/label_HP.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/Bullet.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Enemy/Interface/Health_BG.png" type="Texture" id=7]
+[ext_resource path="res://Enemy/Interface/Health_fill.png" type="Texture" id=8]
+[ext_resource path="res://Enemy/Interface/Interface.gd" type="Script" id=9]
+[ext_resource path="res://Enemy/Interface/Lifebar.gd" type="Script" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 7.79533, 23.7903 )

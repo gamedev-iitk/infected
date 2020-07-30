@@ -1,25 +1,24 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Enemy/Green.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/enemySprite.png" type="Texture" id=1]
 [ext_resource path="res://Enemy/Enemy.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 30.704, 30.0307 )
 
-[node name="Enemy" type="KinematicBody2D"]
+[node name="EnemyGreen" type="KinematicBody2D"]
 position = Vector2( -0.917519, -0.352682 )
 scale = Vector2( 0.5, 0.5 )
 collision_layer = 2
 collision_mask = 13
 script = ExtResource( 2 )
+speed = 40
+damage = 4
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 1.12418, -0.149895 )
-scale = Vector2( 0.269962, 0.259 )
+scale = Vector2( 0.264501, 0.25 )
 texture = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
+hframes = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -37,6 +36,7 @@ one_shot = true
 
 [node name="PlayerHit" type="Timer" parent="."]
 process_mode = 0
+wait_time = 0.5
 one_shot = true
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="PlayerHit" to="." method="_on_PlayerHit_timeout"]
