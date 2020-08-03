@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Health_fill.png-d530e2dea379c3e5171ea2f3ad4eff93.stex"
+path="res://.import/EmptyBar.png-8387f990dd02cae9afc75c32be35e159.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Enemy/Interface/Health_fill.png"
-dest_files=[ "res://.import/Health_fill.png-d530e2dea379c3e5171ea2f3ad4eff93.stex" ]
+source_file="res://Sprites/EmptyBar.png"
+dest_files=[ "res://.import/EmptyBar.png-8387f990dd02cae9afc75c32be35e159.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -30,5 +30,5 @@ process/HDR_as_SRGB=false
 process/invert_color=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

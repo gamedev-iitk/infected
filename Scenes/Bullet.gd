@@ -18,4 +18,6 @@ func _on_Bullet_body_entered(body):
 	queue_free()
 	if "Enemy" in body.name:
 		body.On_hit_and_dead()
+	if "Breakable" in body.name:
+		body.queue_free()
 

@@ -1,24 +1,20 @@
 extends Control
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+	pass 
 
 
 func _on_New_game_pressed():
+	global.health = 100
+	global.enemies_killed = 0
 	get_tree().change_scene("res://Scenes/level1.tscn")
+	
 
 
 func _on_instructions_pressed():
 	get_tree().change_scene("res://font/buttons/instruction.tscn")
+
+
+func _on_exit_pressed():
+	get_tree().quit()

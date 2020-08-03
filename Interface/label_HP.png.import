@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/player stand.png-2476631949c76ffaef00a804b40b15cb.stex"
+path="res://.import/label_HP.png-110eb3e1d23664c289eda317b6d7dda5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/player stand.png"
-dest_files=[ "res://.import/player stand.png-2476631949c76ffaef00a804b40b15cb.stex" ]
+source_file="res://Interface/label_HP.png"
+dest_files=[ "res://.import/label_HP.png-110eb3e1d23664c289eda317b6d7dda5.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
