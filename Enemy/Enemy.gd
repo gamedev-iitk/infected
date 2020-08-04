@@ -6,7 +6,7 @@ const FLOOR = Vector2(0,-1)
 export(int) var hp = 2
 export(int) var speed = 60
 export(int) var damage = 5
-export(int) var bonus_health = 5
+
 
 var velocity = Vector2()
 var direction=1
@@ -47,7 +47,6 @@ func On_hit_and_dead():
 		velocity = Vector2(0,0)
 		$CollisionShape2D.disabled = true
 		$Timer.start()
-		get_tree().call_group("player", "enemy_in_contact", -bonus_health)
 		global.enemies_killed += 1
 
 func _on_Timer_timeout():

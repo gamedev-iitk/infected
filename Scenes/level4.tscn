@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Textures/sp.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Enemy/EnemyRed.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Player/player.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/level4.gd" type="Script" id=9]
+[ext_resource path="res://Enemy/EnemyBoss.tscn" type="PackedScene" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 7.54886, 23.8255 )
@@ -75,7 +76,7 @@ position = Vector2( 472.054, 364.329 )
 position = Vector2( 767.792, 238.306 )
 
 [node name="EnemyGreen3" parent="." instance=ExtResource( 4 )]
-position = Vector2( 677.022, 30.7387 )
+position = Vector2( 676.412, 31.5933 )
 
 [node name="EnemyGreen4" parent="." instance=ExtResource( 4 )]
 position = Vector2( 963.346, 365.783 )
@@ -134,5 +135,8 @@ position = Vector2( 141.74, 312.614 )
 
 [node name="Camera2D" parent="Player" index="5"]
 limit_right = 1024
+
+[node name="EnemyBoss" parent="." instance=ExtResource( 10 )]
+position = Vector2( 176.389, 81.2868 )
 
 [editable path="Player"]
