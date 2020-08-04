@@ -1,6 +1,6 @@
 extends Area2D
 
-const SPEED = 5
+const SPEED = 4
 var start_pos = Vector2(0,0)
 var mouse_pos = Vector2(0,0)
 
@@ -10,7 +10,7 @@ func _physics_process(delta):
 		queue_free()
 	var direction = (mouse_pos - start_pos).normalized()
 	var distance =  get_position() - start_pos
-	if distance.length() > 200 :
+	if distance.length() > 60 :
 		queue_free()
 	translate(SPEED*direction)
 
