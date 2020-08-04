@@ -1,29 +1,21 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Enemy/Enemy.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/enemySprite.png" type="Texture" id=2]
+[ext_resource path="res://Enemy/EnemyBoss.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/boss.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 30.704, 30.0307 )
+extents = Vector2( 59.9268, 41.714 )
 
-[node name="EnemyRed" type="KinematicBody2D"]
-position = Vector2( -0.917519, -0.352682 )
-scale = Vector2( 0.5, 0.5 )
-collision_layer = 2
-collision_mask = 13
+[node name="EnemyBoss" type="KinematicBody2D"]
+position = Vector2( -0.918, -0.353 )
+scale = Vector2( 0.7, 0.7 )
 script = ExtResource( 1 )
-hp = 6
-damage = 10
-bonus_health = 10
 
 [node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 0.255231, 0.243896 )
+scale = Vector2( 0.255, 0.244 )
 texture = ExtResource( 2 )
-hframes = 3
-frame = 2
-__meta__ = {
-"_edit_group_": true
-}
+hframes = 2
+frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -31,11 +23,9 @@ shape = SubResource( 1 )
 [node name="RayCast2D" type="RayCast2D" parent="."]
 position = Vector2( 19, 0 )
 enabled = true
-cast_to = Vector2( 0, 31 )
+cast_to = Vector2( 0, 45 )
 
-[node name="Timer" type="Timer" parent="." groups=[
-"Enemy",
-]]
+[node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
 

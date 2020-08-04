@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Green .png-34afeeeacf547e982811792ac6577655.stex"
+path="res://.import/Health_fill.png-35fae02426e17987b9fd31d70a3bc802.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Green .png"
-dest_files=[ "res://.import/Green .png-34afeeeacf547e982811792ac6577655.stex" ]
+source_file="res://Interface/Health_fill.png"
+dest_files=[ "res://.import/Health_fill.png-35fae02426e17987b9fd31d70a3bc802.stex" ]
 
 [params]
 

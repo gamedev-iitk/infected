@@ -3,7 +3,7 @@ extends KinematicBody2D
 const GRAVITY = 10
 const FLOOR = Vector2(0,-1)
 
-export(int) var hp = 10
+export(int) var hp = 2
 export(int) var speed = 60
 export(int) var damage = 5
 export(int) var bonus_health = 5
