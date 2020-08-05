@@ -8,7 +8,7 @@ func _ready():
 func _on_New_game_pressed():
 	global.health = 100
 	global.enemies_killed = 0
-	get_tree().change_scene("res://Scenes/level1.tscn")
+	get_tree().change_scene("res://Cutscene/C1.tscn")
 	
 
 
